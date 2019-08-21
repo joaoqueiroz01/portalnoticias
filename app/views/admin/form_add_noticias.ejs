@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form_add_noticias</title>
+</head>
+<body>
+	<h1>Adicionar notícias</h1>
+			<% if(validacao){ %>
+				<ul>
+					<% for(var i=0;i<validacao.length;i++) { %>
+						<li>
+							<%= validacao[i].msg%>
+						</li>
+					<%  } %>	
+				</ul>
+				<%  } %>
+	<br>
+	<form action='/noticias/salvar' method='post'>
+			<label>Título</label>
+			<input type="text" id='titulo' name='titulo' value="<%=noticia.titulo%>" placeholder='Título da Notícia'>
+			<br>
+
+			<label>Resumo</label>
+			<input type="text" id="resumo" name="resumo" value="<%=noticia.resumo%>" placeholder="Resumo da notícia">
+			<br>
+
+			<label>Autor da notícia</label>
+			<input type="text" id="autor" name="autor" value="<%=noticia.autor%>" placeholder="Autor da noticia">
+			<br>
+
+			<label>Data da notícia</label>
+			<input type="date" id="data_noticia" name="data_noticia" value="<%=noticia.data_noticia%>" placeholder="Data da noticia">
+			<br>
+
+			<label>Notícia</label>
+			<textarea id='noticia' name='noticia' placeholder='Notícia' rows="5" cols="30"><%=noticia.noticia%></textarea>		
+			<br>
+			<input type='submit' value='Enviar'>
+	</form>
+</body>
+</html>
